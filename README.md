@@ -22,4 +22,11 @@ PowerShell/Command Prompt + DiskPart will be used to convert a boot USB drive ba
 7. Type in `create partition primary` to create a primary partition on the drive.
 ![diskpart_B7Q6n3dTza](https://github.com/johnnyh209/Converting-Bootable-USB-To-Storage-USB/assets/33064730/30e49237-aed0-4e18-b35e-92375d9d7dd2)
 
-8. While your drive now has a parition, you currently cannot write any files to it because it does not have a file system on it yet. 
+8. While your drive now has a partition, you currently cannot write any files to it because it does not have a file system on it yet. The file system is how your operating system stores and manages files. FAT, or File Allocation Table, is one type of file system that you would see on flash drives. Within the FAT category are FAT32 and exFAT. FA32 supports volume sizes up to 2TB, and a maximum file size of 4GB. FAT32 is older than exFAT, which supports file sizes that are larger than 4 GB. For my case, I will be going with exFAT. To write a file system onto the drive, use the `Format` command like so: `Format fs=exFAT quick`. `Format` is the name of the command, `fs=` declares the file system type, and `quick` performs a quick format.
+![diskpart_1q2JpItizl](https://github.com/johnnyh209/Converting-Bootable-USB-To-Storage-USB/assets/33064730/d8f6d902-9141-4345-9698-fbff15ac37dc)
+
+9. Now that we have a file system on the drive, the last thing to do is to assign it a drive letter. We do so by typing in `assign`.
+![diskpart_m27Ixm1YsX](https://github.com/johnnyh209/Converting-Bootable-USB-To-Storage-USB/assets/33064730/de4244f6-8089-4e05-8607-806c45caceb1)
+
+On Windows, if you open `File Explorer` and click on `This PC`, you should see the USB drive listed.
+
